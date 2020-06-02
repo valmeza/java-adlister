@@ -29,7 +29,7 @@ public class HelloWorldServlet extends HttpServlet {
         }
 
         pageCount++;
-        String title = "Total of page views: ";
+        String title = "Total # of page views: ";
         out.println("<h2>" + title + " " + pageCount + "</h2>");
     }
 }
