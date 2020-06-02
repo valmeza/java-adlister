@@ -9,6 +9,13 @@ import java.io.PrintWriter;
 @WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello")
 public class HelloWorldServlet extends HttpServlet {
 
+    private int pageCount;
+
+    public void init() {
+        // Reset page counter
+        pageCount = 0;
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         res.setContentType("text/html");
@@ -20,5 +27,9 @@ public class HelloWorldServlet extends HttpServlet {
         } else {
             out.println("<h1>Hello, World!</h1>");
         }
+
+        pageCount++;
+        String title = "Total of page views: ";
+        out.println("<h2>" + title + " " + pageCount + "</h2>");
     }
 }
