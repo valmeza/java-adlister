@@ -26,16 +26,19 @@
 <h1>Login</h1>
 <jsp:include page="partials/navbar.jsp"/>
 <form action="login.jsp" method="post">
-    <label for="username">
-        Username
-    </label>
-    <input id="username" name="username" type="text" placeholder="Username" required>
-    <label for="password">
-        Password
-    </label>
-    <input id="password" name="password" type="text" placeholder="Password" required>
-
-    <button type="submit">Login</button>
+    <div class="form-group">
+        <label for="username">
+            Username
+        </label>
+        <input id="username" class="form-control" name="username" type="text" placeholder="Username" required>
+    </div>
+    <div class="form-group">
+        <label for="password">
+            Password
+        </label>
+        <input id="password" class="form-control" name="password" type="text" placeholder="Password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
 </form>
 </body>
 </html>
