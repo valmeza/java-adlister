@@ -24,7 +24,10 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("password_confirmation");
 
-        boolean errors = username.isEmpty() || email.isEmpty() || password.isEmpty() || (!password.equals(passwordConfirmation));
+        boolean errors = username.isEmpty()
+                || email.isEmpty()
+                || password.isEmpty()
+                || (!password.equals(passwordConfirmation));
 
         if(errors) {
             response.sendRedirect("/register");

@@ -5,10 +5,10 @@ import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
 
-public class MySQLUsersDAO implements Users {
-    private Connection connection;
+public class MySQLUsersDao implements Users {
+    private Connection connection = null;
 
-    public MySQLUsersDAO(Config config) {
+    public MySQLUsersDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
@@ -29,7 +29,7 @@ public class MySQLUsersDAO implements Users {
             statement.setString(1, username);
 
             ResultSet rs = statement.executeQuery();
-            if (!rs.next()) {
+            if (rs.next()) {
                 return new User(
                         rs.getLong("id"),
                         rs.getString("username"),
@@ -52,13 +52,13 @@ public class MySQLUsersDAO implements Users {
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getPassword());
             statement.executeUpdate();
+
             ResultSet rs = statement.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
 
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            throw new RuntimeException("Error Creating new user", throwables);
         }
-        return null;
     }
 }
