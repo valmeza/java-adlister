@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <label for="password_confirmation">Confirm Password</label>
-            <input id="password_confirmation" name="password" class="form-control" type="password" required>
+            <input id="password_confirmation" name="password_confirmation" class="form-control" type="password" required>
         </div>
         <input type="submit" class="btn btn-primary btn-block" value="Register">
     </form>
